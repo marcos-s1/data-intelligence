@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.env
+reports/**/data_source/*.csv
+reports/**/data_source/*.json

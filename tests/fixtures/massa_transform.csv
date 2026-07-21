@@ -1,0 +1,51 @@
+texto;sentimento_esperado;lemma_obrigatorio
+O asfalto ficou maravilhoso, parabéns prefeito!;POSITIVO;asfalto
+Falta remédio no posto de saúde toda semana!;NEGATIVO;saúde
+A votação da pauta orçamentária foi adiada.;NEUTRO;votação
+Mais um buraco na avenida principal, que vergonha!;NEGATIVO;buraco
+Parabéns pela inauguration da nova creche escolar!;POSITIVO;creche
+O vereador protocolou um requerimento técnico ontem.;NEUTRO;requerimento
+Parabéns ao deputado pelas emendas enviadas à saúde!;POSITIVO;emenda
+As ruas do bairro estão na escuridão total, sem luz.;NEGATIVO;rua
+A sessão plenária começou no horário previsto.;NEUTRO;sessão
+Que gestão maravilhosa, a coleta de lixo está nota 10!;POSITIVO;coleta
+Falta segurança na praça central, muitos assaltos.;NEGATIVO;praça
+O prefeito assinou o decreto de regulamentação.;NEUTRO;decreto
+Parabéns pela reforma do hospital municipal!;POSITIVO;reforma
+O transporte público está um caos, ônibus lotados!;NEGATIVO;transporte
+A comissão de finanças vai se reunir na terça-feira.;NEUTRO;comissão
+A nova iluminação de LED deixou o bairro excelente!;POSITIVO;iluminação
+Vários bairros estão sofrendo com a falta de água.;NEGATIVO;água
+O orçamento do município será discutido na câmara.;NEUTRO;orçamento
+Parabéns pelo novo programa de incentivo ao esporte!;POSITIVO;programa
+A fila para exames no posto de saúde está gigante.;NEUTRO;posto
+O secretário de obras concedeu uma interview.;NEUTRO;secretário
+Adorei a nova ciclovia, parabéns pela iniciativa!;POSITIVO;ciclovia
+O reajuste dos professores está atrasado de novo.;NEGATIVO;reajuste
+A prefeitura lançou o novo edital de licitação.;NEUTRO;edital
+O atendimento médico na UPA foi rápido e excelente!;POSITIVO;atendimento
+O esgoto está correndo a céu aberto na minha rua.;NEGATIVO;esgoto
+O projeto de lei segue para sanção do executivo.;POSITIVO;projeto
+A festa de aniversário da cidade foi linda, parabéns!;POSITIVO;festa
+Muitas escolas municipais estão sem merenda escolar.;NEUTRO;escola
+O censo municipal foi prorrogado por trinta dias.;NEUTRO;censo
+Parabéns pela entrega das novas viaturas policiais!;POSITIVO;entrega
+As calçadas do centro estão totalmente destruídas.;NEGATIVO;calçada
+O plano diretor da cidade passará por revisão.;NEUTRO;diretor
+Que orgulho ver nossa cidade ganhando novas indústrias!;POSITIVO;indústria
+A prefeitura aumentou o IPTU de forma abusiva!;NEGATIVO;prefeitura
+A audiência pública debaterá o meio ambiente.;NEUTRO;audiência
+Excelente iniciativa o mutirão de castração de pets!;POSITIVO;castração
+Os funcionários públicos estão sem receber o salário.;NEUTRO;salário
+O tribunal de contas emitiu parecer sobre as metas.;NEUTRO;tribunal
+Parabéns pela revitalização da praça dos idosos!;POSITIVO;revitalização
+A ponte que liga os bairros corre risco de cair.;NEUTRO;bairro
+O Diário Oficial publicou as novas nomeações.;NEUTRO;publicar
+O novo aplicativo da prefeitura facilitou muito a vida!;POSITIVO;aplicativo
+O lixo está acumulado nas esquinas há três dias.;NEGATIVO;lixo
+O poder legislativo votará as emendas amanhã.;NEUTRO;votar
+Parabéns aos guardas municipais pelo ótimo trabalho!;POSITIVO;guarda
+As estradas vicinais estão intransitáveis na chuva.;NEGATIVO;estrada
+A taxa de turismo começará a ser cobrada na praia.;NEUTRO;taxa
+Parabéns pelo asfaltamento da zona rural do município!;POSITIVO;asfaltamento
+A creche do bairro está com as obras paradas há meses.;NEUTRO;bairro

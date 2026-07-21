@@ -1,0 +1,6 @@
+# Cadastro de clientes ativos para processamento em lote
+clientes:
+  - id: "governo_sp"
+    nome: "Governo do Estado de São Paulo"
+    termo_busca: '"Governo de São Paulo" OR "Tarcísio de Freitas" OR "Governo do Estado de São Paulo" OR "Governo SP" OR "Política São Paulo" OR "Governo paulista" OR "Governo do Estado de SP" OR "polemica política São Paulo" OR "Acusação de corrupção Governador" OR "Governo paulista" OR "Governo do Estado de SP" OR "polemica política São Paulo" OR "Acusação de corrupção São Paulo"'
+    instagram: "tarcisiogdf"
