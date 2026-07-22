@@ -2,6 +2,16 @@
 import os
 import logging
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Carrega as variáveis do arquivo .env
+load_dotenv()
+
+# --- Configurações da API ---
+APIFY_API_TOKEN = os.getenv("APIFY_TOKEN")
+if not APIFY_API_TOKEN:
+    raise ValueError("APIFY_TOKEN não encontrado. Defina a variável de ambiente ou crie um arquivo .env")
+
 
 # ==============================================================================
 # 1. GERENCIAMENTO DE DIRETÓRIOS (PATHS)

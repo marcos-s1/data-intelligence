@@ -29,22 +29,29 @@ def extrair_comentarios_lote_instagram(lista_urls_posts: list, limite_comentario
     
     # Payload de entrada do Actor focado em comentários
     run_input = {
-        "addParentData": False,
+        "resultsType": "comments",
         "directUrls": lista_urls_posts,
         "resultsLimit": limite_comentarios_por_post,
-        "resultsType": "comments",
-        "searchLimit": limite_comentarios_por_post,
-        "searchType": "hashtag"
+        "proxyConfiguration": {
+            "useApifyProxy": True,
+            "apifyProxyGroups": ["RESIDENTIAL"]
+        },
+        "customHeaders": {
+            "user-agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1"
+        }
     }
 
     try:
-        logger.info(f"🚀 [EXTRAÇÃO COMENTÁRIOS] Disparando lote de comentários para {len(lista_urls_posts)} posts.")
+        logger.info(
+            f"🚀 [EXTRAÇÃO COMENTÁRIOS] Solicitando lote de até {limite_comentarios_por_post} "
+            f"comentários para {len(lista_urls_posts)} posts..."
+        )
         
         # Executa o Actor focado em comentários
         run = client.actor("shu8hvrXbJbY3Eb9W").call(run_input=run_input)
         
         # Desempacotamento seguro do objeto ActorRun do SDK Python
-        dataset_id = None
+        dataset_id = getattr(run, "default_dataset_id", None)
         if hasattr(run, "default_dataset_id"):
             dataset_id = getattr(run, "default_dataset_id")
         elif hasattr(run, "data") and isinstance(run.data, dict):
@@ -61,30 +68,34 @@ def extrair_comentarios_lote_instagram(lista_urls_posts: list, limite_comentario
             logger.warning("⚠️ [EXTRAÇÃO COMENTÁRIOS] Nenhum comentário foi capturado no lote.")
             return pd.DataFrame()
 
-        comentarios_pipeline = []
-
+        comentarios_lote = []
         # Parseamento baseado estritamente no contrato do anexo de comentários
         for item in dataset_items:
             # Captura a URL da postagem de origem vinda do nó do comentário
             post_url = item.get("postUrl", "")
             
             # Isola o shortcode de identificação do post de forma segura
-            shortcode = "unknown"
+            # Isola o shortcode de identificação do post de forma segura
+            shortcode = None
             if "/p/" in post_url:
-                shortcode = post_url.split("/p/")[-1].replace("/", "")
+                shortcode = post_url.split("/p/")[-1].split("/")[0].split("?")[0]
             elif "/clips/" in post_url:
-                shortcode = post_url.split("/clips/")[-1].replace("/", "")
+                shortcode = post_url.split("/clips/")[-1].split("/")[0].split("?")[0]
 
-            comentarios_pipeline.append({
-                "post_id": shortcode,
-                "url_post": post_url,
-                "comentario_id": item.get("id"),
-                "texto": item.get("text"),
+            # Fallback seguro caso a URL não venha formatada
+            post_id_final = shortcode or item.get("postShortCode") or item.get("postId") or "unknown"
+
+            comentarios_lote.append({
+                "post_id": post_id_final,
+                "url_post": item.get("postUrl"),
+                "comentario_id": str(item.get("id")),
+                "texto": item.get("text", ""),
+                "curtidas_comentario": item.get("likesCount", 0) or 0,
                 "data_comentario": item.get("timestamp"),
                 "autor_comentario": item.get("ownerUsername")
             })
 
-        df_comentarios = pd.DataFrame(comentarios_pipeline)
+        df_comentarios = pd.DataFrame(comentarios_lote)
         logger.info(f"🎯 [EXTRAÇÃO COMENTÁRIOS] Sucesso! Coletados {len(df_comentarios)} comentários em lote.")
         return df_comentarios
 
