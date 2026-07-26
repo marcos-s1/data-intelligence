@@ -89,6 +89,8 @@ def coletar_comentarios_instagram(perfil_alvo: str,
     except Exception as e:
         logger.error(f"Erro crítico ao raspar o Instagram de @{perfil_alvo}: {str(e)}")
         return pd.DataFrame(columns=['post_id', 'data_post', 'autor_comentario', 'texto', 'data_comentario'])
+
+
 if __name__ == "__main__":
     # Teste local rápido (Sanity Check)
     print("🧪 Executando teste isolado do módulo instagram.py...")

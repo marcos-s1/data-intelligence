@@ -17,7 +17,7 @@ import pandas as pd
 from config.settings import logger, DIAS_HISTORICO_PADRAO
 
 # Importações dos módulos de extração, transformação e utilitários
-# from src.extraction.instagram_posts import extrair_posts_instagram
+from src.extraction.instagram_posts import extrair_posts_e_comentarios_instagram
 from src.extraction.instagram_comments import extrair_comentarios_lote_instagram
 from src.extraction import coletar_noticias_politico  
 from src.transformation import (
@@ -95,7 +95,6 @@ def carregar_clientes() -> list:
         logger.error(f"❌ [CONFIG] Erro ao ler {CLIENTES_CONFIG_PATH}: {str(e)}")
         return []
 
-
 def orquestrar_pipeline():
     """Orquestra o pipeline com controle individual de APIs para Notícias e Instagram."""
     logger.info("==================================================")
@@ -138,7 +137,7 @@ def orquestrar_pipeline():
             logger.info("📸 [INSTAGRAM - ONLINE] Disparando raspagem no Apify...")
             
             # 2.1 Posts + Comentários Nativos
-            df_posts, df_coment_iniciais = extrair_posts_instagram(
+            df_posts, df_coment_iniciais = extrair_posts_e_comentarios_instagram(
                 perfil_url=cliente.get("instagram"),
                 limite_posts=30
             )
@@ -181,6 +180,37 @@ def orquestrar_pipeline():
             logger.info("📂 [INSTAGRAM - OFFLINE] Carregando posts e comentários dos CSVs locais...")
             df_posts = carregar_csv_existente(cliente_id, "posts_brutos")
             df_comentarios_consolidados = carregar_csv_existente(cliente_id, "instagram_bruto")
+
+        # ------------------------------------------------------------------
+        # 2.3 CONCORRENTES (SHARE OF VOICE)
+        # ------------------------------------------------------------------
+        if USAR_API_INSTAGRAM:
+            concorrentes = cliente.get("concorrentes", [])
+            df_concorrentes_unificado = pd.DataFrame()
+            
+            if concorrentes:
+                logger.info(f"🕵️ [CONCORRENTES - ONLINE] Extraindo {len(concorrentes)} perfis da oposição...")
+                lista_df_concorrentes = []
+                
+                for concorrente_handle in concorrentes:
+                    logger.info(f"   ⏳ Extraindo @{concorrente_handle}...")
+                    # Reutilizamos a função principal, limitando a 30 posts para manter paridade temporal
+                    df_posts_conc, _ = extrair_posts_e_comentarios_instagram(concorrente_handle, limite_posts=30)
+                    
+                    if not df_posts_conc.empty:
+                        df_posts_conc['perfil_concorrente'] = concorrente_handle
+                        lista_df_concorrentes.append(df_posts_conc)
+                
+                if lista_df_concorrentes:
+                    df_concorrentes_unificado = pd.concat(lista_df_concorrentes, ignore_index=True)
+                    logger.info(f"📊 [CONCORRENTES - ONLINE] Sucesso: {len(df_concorrentes_unificado)} posts da oposição mapeados.")
+                else:
+                    logger.warning("⚠️ [CONCORRENTES] Nenhum post extraído da oposição.")
+            else:
+                logger.info("⏭️ [CONCORRENTES] Cliente não possui concorrentes mapeados no YAML.")
+        else:
+            logger.info("📂 [CONCORRENTES - OFFLINE] Carregando CSV local...")
+            df_concorrentes_unificado = carregar_csv_existente(cliente_id, "concorrentes_brutos")
 
         # ------------------------------------------------------------------
         # 3. TRANSFORMAÇÃO E INTELIGÊNCIA ARTIFICIAL (BERT / NLP)
@@ -227,12 +257,16 @@ def orquestrar_pipeline():
         if not df_comentarios_consolidados.empty:
             salvar_dados_consolidados(df_comentarios_consolidados, cliente_id, "instagram_bruto")
             salvar_dados_consolidados(df_pautas_instagram, cliente_id, "pautas_populacao")
+
+        if 'df_concorrentes_unificado' in locals() and not df_concorrentes_unificado.empty:
+            salvar_dados_consolidados(df_concorrentes_unificado, cliente_id, "concorrentes_brutos")
         
         logger.info(f"✨ [CONCLUÍDO] Cliente '{nome_cliente}' processado com sucesso!")
 
     logger.info("==================================================")
     logger.info("🏁 PIPELINE DE INTELIGÊNCIA POLÍTICA FINALIZADO COM SUCESSO!")
     logger.info("==================================================")
+
 
 if __name__ == "__main__":
     orquestrar_pipeline()

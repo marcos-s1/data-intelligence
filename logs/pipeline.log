@@ -571,3 +571,95 @@
 2026-07-21 19:51:37 [INFO] ==================================================
 2026-07-21 19:51:37 [INFO] 🏁 PIPELINE DE INTELIGÊNCIA POLÍTICA FINALIZADO COM SUCESSO!
 2026-07-21 19:51:37 [INFO] ==================================================
+2026-07-26 19:36:16 [INFO] ==================================================
+2026-07-26 19:36:16 [INFO] 🎬 INICIANDO PIPELINE DE INTELIGÊNCIA POLÍTICA
+2026-07-26 19:36:16 [INFO] ⚙️ NOTÍCIAS : 🌐 ONLINE (Google News API)
+2026-07-26 19:36:16 [INFO] ⚙️ INSTAGRAM: 🌐 ONLINE (Apify Scraper)
+2026-07-26 19:36:16 [INFO] ==================================================
+2026-07-26 19:36:16 [INFO] 📄 [CONFIG] Lendo arquivo de clientes: C:\Users\manto\Downloads\data-intelligence\config\clientes.yaml
+2026-07-26 19:36:16 [INFO] 🎯 [CONFIG] Encontrados 1 cliente(s) mapeados.
+2026-07-26 19:36:16 [INFO] --------------------------------------------------
+2026-07-26 19:36:16 [INFO] 🚀 [1/1 PROCESSANDO] Cliente: Governo do Estado de São Paulo (governo_sp)
+2026-07-26 19:36:16 [INFO] --------------------------------------------------
+2026-07-26 19:36:16 [INFO] 📰 [NOTÍCIAS - ONLINE] Buscando matérias recentes via Google News...
+2026-07-26 19:36:16 [INFO] Iniciando coleta no Google News para a query: "Governo de São Paulo" OR "Tarcísio de Freitas" OR "Governo do Estado de São Paulo" OR "Governo SP" OR "Política São Paulo" OR "Governo paulista" OR "Governo do Estado de SP" OR "polemica política São Paulo" OR "Acusação de corrupção Governador" OR "Governo paulista" OR "Governo do Estado de SP" OR "polemica política São Paulo" OR "Acusação de corrupção São Paulo" nos últimos 30 dias.
+2026-07-26 19:36:18 [INFO] Busca concluída. Encontradas 74 entradas de notícias.
+2026-07-26 19:36:18 [INFO] Processamento concluído com sucesso. 74 notícias únicas prontas.
+2026-07-26 19:36:18 [INFO] 📊 [NOTÍCIAS - ONLINE] Mapeadas 74 notícias.
+2026-07-26 19:36:18 [INFO] 📸 [INSTAGRAM - ONLINE] Disparando raspagem no Apify...
+2026-07-26 19:36:18 [INFO] 🚀 [EXTRAÇÃO UNIFICADA] Buscando os últimos 30 posts e comentários de: https://www.instagram.com/tarcisiogdf
+2026-07-26 19:37:15 [INFO] 🎯 [ESTRUTURAÇÃO] Sucesso! Processados 30 posts e 305 comentários.
+2026-07-26 19:37:15 [INFO] 📊 [INSTAGRAM - ONLINE] Mapeados 30 posts e 305 comentários nativos.
+2026-07-26 19:37:15 [INFO] 💬 [INSTAGRAM - ONLINE] Solicitando lote expandido para 30 URLs...
+2026-07-26 19:37:15 [INFO] 🚀 [EXTRAÇÃO COMENTÁRIOS] Solicitando lote de até 250 comentários para 30 posts...
+2026-07-26 19:38:18 [INFO] 📦 [EXTRAÇÃO COMENTÁRIOS] Coleta finalizada na nuvem. Baixando itens...
+2026-07-26 19:38:18 [INFO] 🎯 [EXTRAÇÃO COMENTÁRIOS] Sucesso! Coletados 444 comentários em lote.
+2026-07-26 19:38:18 [INFO] 📊 [INSTAGRAM - ONLINE] Retornados 444 comentários em lote.
+2026-07-26 19:38:18 [INFO] 🔗 [INSTAGRAM] Consolidando comentários nativos e em lote...
+2026-07-26 19:38:18 [INFO] 🧼 [DEDUPLICAÇÃO] Limpando base bruta de 749 comentários...
+2026-07-26 19:38:18 [INFO] ✨ [DEDUPLICAÇÃO CONCLUÍDA] 305 duplicatas removidas. Total limpo: 444 comentários.
+2026-07-26 19:38:18 [INFO] 🕵️ [CONCORRENTES - ONLINE] Extraindo 3 perfis da oposição...
+2026-07-26 19:38:18 [INFO]    ⏳ Extraindo @fernandohaddadoficial...
+2026-07-26 19:38:18 [INFO] 🚀 [EXTRAÇÃO UNIFICADA] Buscando os últimos 30 posts e comentários de: https://www.instagram.com/fernandohaddadoficial
+2026-07-26 19:38:59 [INFO] 🎯 [ESTRUTURAÇÃO] Sucesso! Processados 30 posts e 339 comentários.
+2026-07-26 19:38:59 [INFO]    ⏳ Extraindo @guilhermeboulos.oficial...
+2026-07-26 19:38:59 [INFO] 🚀 [EXTRAÇÃO UNIFICADA] Buscando os últimos 30 posts e comentários de: https://www.instagram.com/guilhermeboulos.oficial
+2026-07-26 19:40:07 [INFO] 🎯 [ESTRUTURAÇÃO] Sucesso! Processados 30 posts e 286 comentários.
+2026-07-26 19:40:07 [INFO]    ⏳ Extraindo @rodrigogarcia...
+2026-07-26 19:40:07 [INFO] 🚀 [EXTRAÇÃO UNIFICADA] Buscando os últimos 30 posts e comentários de: https://www.instagram.com/rodrigogarcia
+2026-07-26 19:40:26 [INFO] 🎯 [ESTRUTURAÇÃO] Sucesso! Processados 1 posts e 0 comentários.
+2026-07-26 19:40:26 [INFO] 📊 [CONCORRENTES - ONLINE] Sucesso: 61 posts da oposição mapeados.
+2026-07-26 19:40:26 [INFO] 🧠 [IA & NLP] Processando análise de sentimento e extração de pautas...
+2026-07-26 19:40:26 [INFO] 🧠 [IA - NOTÍCIAS] Classificando sentimento dos títulos...
+2026-07-26 19:40:26 [INFO] 🧼 [NLP] Higienizando textos e padronizando quebras/URLs na coluna 'titulo'...
+2026-07-26 19:40:26 [INFO] ⚡ [NLP] Aplicando triagem de emojis puros...
+2026-07-26 19:40:26 [INFO] 🎯 [NLP] Heurística isolou 0 registros de reações puros.
+2026-07-26 19:40:26 [INFO] 🧠 [NLP] Enviando 74 registros complexos para inferência via IA.
+2026-07-26 19:40:26 [INFO] 🤖 [NLP] Inicializando modelo: pysentimiento/bertweet-pt-sentiment
+2026-07-26 19:40:43 [INFO] HTTP Request: GET https://huggingface.co/api/agent-harnesses "HTTP/1.1 200 OK"
+2026-07-26 19:40:43 [INFO] HTTP Request: HEAD https://huggingface.co/pysentimiento/bertweet-pt-sentiment/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-26 19:40:43 [WARNING] Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2026-07-26 19:40:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/pysentimiento/bertweet-pt-sentiment/726612815d49447cbfe3f55bbfc2993c1f5fad10/config.json "HTTP/1.1 200 OK"
+2026-07-26 19:40:43 [INFO] HTTP Request: HEAD https://huggingface.co/pysentimiento/bertweet-pt-sentiment/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-26 19:40:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/pysentimiento/bertweet-pt-sentiment/726612815d49447cbfe3f55bbfc2993c1f5fad10/config.json "HTTP/1.1 200 OK"
+2026-07-26 19:40:43 [INFO] HTTP Request: HEAD https://huggingface.co/pysentimiento/bertweet-pt-sentiment/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-26 19:40:43 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/pysentimiento/bertweet-pt-sentiment/726612815d49447cbfe3f55bbfc2993c1f5fad10/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-26 19:40:44 [INFO] HTTP Request: HEAD https://huggingface.co/pysentimiento/bertweet-pt-sentiment/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-26 19:40:44 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/pysentimiento/bertweet-pt-sentiment/726612815d49447cbfe3f55bbfc2993c1f5fad10/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-26 19:40:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/pysentimiento/bertweet-pt-sentiment/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-26 19:40:44 [INFO] HTTP Request: GET https://huggingface.co/api/models/pysentimiento/bertweet-pt-sentiment/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-26 19:40:48 [INFO] 🏷️ [NLP - NOTÍCIAS] Mapeando pautas mais frequentes da imprensa...
+2026-07-26 19:40:48 [INFO] Carregando modelo SpaCy: pt_core_news_sm
+2026-07-26 19:40:48 [INFO] Modelo SpaCy carregado com sucesso.
+2026-07-26 19:40:48 [INFO] Iniciando extração de tópicos para 74 registros de texto...
+2026-07-26 19:40:48 [INFO] Extração concluída. Top 5 termos detectados: [('polêmica', 16), ('governo', 8), ('polêmico', 4), ('educação', 3), ('entrar', 3)]
+2026-07-26 19:40:48 [INFO] 🧠 [IA - INSTAGRAM] Inferindo sentimento (BERT) para 444 comentários...
+2026-07-26 19:40:48 [INFO] 🧼 [NLP] Higienizando textos e padronizando quebras/URLs na coluna 'texto'...
+2026-07-26 19:40:48 [INFO] ⚡ [NLP] Aplicando triagem de emojis puros...
+2026-07-26 19:40:48 [INFO] 🎯 [NLP] Heurística isolou 114 registros de reações puros.
+2026-07-26 19:40:48 [INFO] 🧠 [NLP] Enviando 330 registros complexos para inferência via IA.
+2026-07-26 19:40:48 [INFO] 🤖 [NLP] Inicializando modelo: pysentimiento/bertweet-pt-sentiment
+2026-07-26 19:40:48 [INFO] HTTP Request: HEAD https://huggingface.co/pysentimiento/bertweet-pt-sentiment/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-26 19:40:48 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/pysentimiento/bertweet-pt-sentiment/726612815d49447cbfe3f55bbfc2993c1f5fad10/config.json "HTTP/1.1 200 OK"
+2026-07-26 19:40:49 [INFO] HTTP Request: HEAD https://huggingface.co/pysentimiento/bertweet-pt-sentiment/resolve/main/config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-26 19:40:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/pysentimiento/bertweet-pt-sentiment/726612815d49447cbfe3f55bbfc2993c1f5fad10/config.json "HTTP/1.1 200 OK"
+2026-07-26 19:40:49 [INFO] HTTP Request: HEAD https://huggingface.co/pysentimiento/bertweet-pt-sentiment/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-26 19:40:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/pysentimiento/bertweet-pt-sentiment/726612815d49447cbfe3f55bbfc2993c1f5fad10/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-26 19:40:49 [INFO] HTTP Request: HEAD https://huggingface.co/pysentimiento/bertweet-pt-sentiment/resolve/main/tokenizer_config.json "HTTP/1.1 307 Temporary Redirect"
+2026-07-26 19:40:49 [INFO] HTTP Request: HEAD https://huggingface.co/api/resolve-cache/models/pysentimiento/bertweet-pt-sentiment/726612815d49447cbfe3f55bbfc2993c1f5fad10/tokenizer_config.json "HTTP/1.1 200 OK"
+2026-07-26 19:40:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/pysentimiento/bertweet-pt-sentiment/tree/main/additional_chat_templates?recursive=false&expand=false "HTTP/1.1 404 Not Found"
+2026-07-26 19:40:49 [INFO] HTTP Request: GET https://huggingface.co/api/models/pysentimiento/bertweet-pt-sentiment/tree/main?recursive=true&expand=false "HTTP/1.1 200 OK"
+2026-07-26 19:41:02 [INFO] 🏷️ [NLP - INSTAGRAM] Mapeando pautas e demandas da população...
+2026-07-26 19:41:02 [INFO] Iniciando extração de tópicos para 444 registros de texto...
+2026-07-26 19:41:03 [INFO] Extração concluída. Top 5 termos detectados: [('governador', 54), ('parabéns', 32), ('presidente', 27), ('abençoe', 8), ('ficar', 7)]
+2026-07-26 19:41:03 [INFO] 💾 [PERSISTÊNCIA] Atualizando/Salvando arquivos de output para 'governo_sp'...
+2026-07-26 19:41:03 [INFO] Dados salvos com sucesso em: C:\Users\manto\Downloads\data-intelligence\reports\governo_sp\data_source\2026_07_noticias_brutas.csv
+2026-07-26 19:41:03 [INFO] Dados salvos com sucesso em: C:\Users\manto\Downloads\data-intelligence\reports\governo_sp\data_source\2026_07_pautas_imprensa.csv
+2026-07-26 19:41:03 [INFO] Dados salvos com sucesso em: C:\Users\manto\Downloads\data-intelligence\reports\governo_sp\data_source\2026_07_posts_brutos.csv
+2026-07-26 19:41:03 [INFO] Dados salvos com sucesso em: C:\Users\manto\Downloads\data-intelligence\reports\governo_sp\data_source\2026_07_instagram_bruto.csv
+2026-07-26 19:41:03 [INFO] Dados salvos com sucesso em: C:\Users\manto\Downloads\data-intelligence\reports\governo_sp\data_source\2026_07_pautas_populacao.csv
+2026-07-26 19:41:03 [INFO] Dados salvos com sucesso em: C:\Users\manto\Downloads\data-intelligence\reports\governo_sp\data_source\2026_07_concorrentes_brutos.csv
+2026-07-26 19:41:03 [INFO] ✨ [CONCLUÍDO] Cliente 'Governo do Estado de São Paulo' processado com sucesso!
+2026-07-26 19:41:03 [INFO] ==================================================
+2026-07-26 19:41:03 [INFO] 🏁 PIPELINE DE INTELIGÊNCIA POLÍTICA FINALIZADO COM SUCESSO!
+2026-07-26 19:41:03 [INFO] ==================================================
