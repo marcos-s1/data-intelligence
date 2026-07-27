@@ -115,8 +115,8 @@ clientes:
 
  ## 🔒 Segurança e Limitações
 
- Blindagem de Erros: O código possui fallbacks automáticos. Se um CSV estiver ausente ou uma coluna mudar de nome no extrator, o pipeline cria dummies dinâmicos para garantir que a geração do relatório não quebre.
+ * **Blindagem de Erros:** O código possui fallbacks automáticos. Se um CSV estiver ausente ou uma coluna mudar de nome no extrator, o pipeline cria dummies dinâmicos para garantir que a geração do relatório não quebre.
 
- Privacidade: Não expõe senhas ou tokens (geridos estritamente via .env).
+ * **Privacidade:** Não expõe senhas ou tokens (geridos estritamente via .env).
 
- Sazonalidade: Resultados preditivos sujeitos a alterações no algoritmo da Meta (Instagram). Recomenda-se cadência de execução quinzenal.
+ * **Sazonalidade:** Resultados preditivos sujeitos a alterações no algoritmo da Meta (Instagram). Recomenda-se cadência de execução quinzenal.
